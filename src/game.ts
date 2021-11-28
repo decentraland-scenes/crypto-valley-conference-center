@@ -1,5 +1,6 @@
 import * as utils from '@dcl/ecs-scene-utils'
 import { initiateVJUI } from './adminVJ'
+import { hud } from './builderhud/BuilderHUD'
 import { Dispenser } from './dispenser'
 import { updateCoinData } from './marketData'
 import { startParty } from './partyUpstairs'
@@ -172,3 +173,12 @@ updateCoinData()
 startParty()
 
 initiateVJUI()
+
+let text = new Texture("images/banner.jpeg")
+export let image = new Entity("big image")
+image.addComponent(new PlaneShape())
+image.addComponent(new Material())
+image.getComponent(Material).albedoTexture = text
+image.addComponent(new Transform({position: new Vector3(57.2,4.4,20.76), rotation: Quaternion.Euler(0,0,180), scale: new Vector3(14,7,1)}))
+engine.addEntity(image)
+hud.attachToEntity(image)
