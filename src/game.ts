@@ -4,7 +4,7 @@ import { Dispenser } from './dispenser'
 import { updateCoinData } from './marketData'
 import { startParty } from './partyUpstairs'
 
-const STREAM_URL = `https://d2lkrl9mesbz6t.cloudfront.net/out/v1/3fdb4f5e9b554e5c902a12aee30fbda6/index.m3u8`
+const STREAM_URL = `https://dclstreams.com/hosted/live/cryptovalleycc/index.m3u8`
 
 //'https://video.dcl.guru/live/conferencecenter1/index.m3u8'
 //'https://pili-live-hls-live.8btc.com/8btclive/20210113160033_6.m3u8'
@@ -43,22 +43,6 @@ const STREAM_URL = `https://d2lkrl9mesbz6t.cloudfront.net/out/v1/3fdb4f5e9b554e5
 //     Camera.instance.feetPosition
 //   )
 // })
-
-// POAP BOOTH
-
-let POAPBooth = new Dispenser(
-  {
-    position: new Vector3(46, 0, 6),
-    rotation: Quaternion.Euler(0, 180, 0),
-  },
-  'wtfrnfts5'
-)
-
-export const sceneMessageBus = new MessageBus()
-
-sceneMessageBus.on('activatePoap', () => {
-  POAPBooth.activate()
-})
 
 let building = new Entity()
 building.addComponent(new GLTFShape('models/DCL_CC.glb'))
