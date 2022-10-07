@@ -330,7 +330,7 @@ export class RotationSystem{
       const baseParcel = parcel.land.sceneJsonData.scene.base;
     
         let isPreview = await isPreviewMode();
-        const useLocal = true;
+        const useLocal = false;
       
         let baseUrl = "wss://lkdcl.co/neat/dcl/wss";
       
