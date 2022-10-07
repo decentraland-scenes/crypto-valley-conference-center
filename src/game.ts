@@ -1,9 +1,13 @@
 import * as utils from '@dcl/ecs-scene-utils'
 import { initiateVJUI } from './adminVJ'
-import { hud } from './builderhud/BuilderHUD'
 import { Dispenser } from './dispenser'
 import { updateCoinData } from './marketData'
 import { startParty } from './partyUpstairs'
+
+// import { WeMeta } from "@wemeta/analytics"
+//   new WeMeta('d9555233-5293-4913-afe1-8c8085ce4674');
+
+export let sceneMessageBus = new MessageBus()
 
 const STREAM_URL = `https://dclstreams.com/hosted/live/cryptovalleycc/index.m3u8`
 
@@ -174,11 +178,22 @@ startParty()
 
 initiateVJUI()
 
-let text = new Texture("images/banner.jpeg")
-export let image = new Entity("big image")
-image.addComponent(new PlaneShape())
-image.addComponent(new Material())
-image.getComponent(Material).albedoTexture = text
-image.addComponent(new Transform({position: new Vector3(57.2,4.4,20.76), rotation: Quaternion.Euler(0,0,180), scale: new Vector3(14,7,1)}))
-engine.addEntity(image)
-hud.attachToEntity(image)
+// let text = new Texture("images/banner.jpeg")
+// export let image = new Entity("big image")
+// image.addComponent(new PlaneShape())
+// image.addComponent(new Material())
+// image.getComponent(Material).albedoTexture = text
+// image.addComponent(new Transform({position: new Vector3(57.2,4.4,20.76), rotation: Quaternion.Euler(0,0,180), scale: new Vector3(14,7,1)}))
+// engine.addEntity(image)
+
+
+import { neat } from './neat/neat'
+neat.init(
+  false, //display locally for admin
+  false, //hide avatars around the neat
+  false, //auto rotation
+  3, //click distance
+  {position: new Vector3(90,0,16), rotation: Quaternion.Euler(0,90,0)}, //neat position in scene
+  'xverse_2.glb', //dispenser type
+  null //if you have the builder hud, pass hud, if not, pass null
+  )

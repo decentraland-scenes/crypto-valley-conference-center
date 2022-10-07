@@ -58,9 +58,9 @@
       "name": "spawn1",
       "default": true,
       "position": {
-        "x": [48,55],
+        "x": 48,
         "y": 3,
-        "z": [0,2]
+        "z": 2
       }
     }
   ],
